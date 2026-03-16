@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load real data
-data = np.loadtxt('DataRPM.txt', delimiter=',')
+data = np.loadtxt("lektion5/DataRPM.txt", delimiter=',')
 N = len(data)
 y = data[:, 0]  # Output (RPM)
 u = data[:, 1]  # Input (constant in this case)

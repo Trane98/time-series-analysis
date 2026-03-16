@@ -24,7 +24,7 @@ for k in range(N):
     yk = y[k]  # Current measurement
     Kk = (P @ Zk) / (R[0, 0] + Zk @ P @ Zk)  # Compute the gain (R is scalar)
     theta_hat = theta_hat + Kk * (yk - Zk @ theta_hat)  # Update parameter estimate
-    P = (I - np.outer(Kk, Zk)) @ P @ (I - np.outer(Kk, Zk)).T + np.outer(Kk, R @ Kk) + Q  # Update covariance matrix
+    P = (I - np.outer(Kk, Zk)) @ P @ (I - np.outer(Kk, Zk)).T + R[0, 0] * np.outer(Kk, Kk) + Q  # Update covariance matrix
     theta_history[:, k] = theta_hat  # Store history
 
 # Plot the results
